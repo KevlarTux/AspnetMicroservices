@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Docker .NET Core Attach (Preview)",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}"
+            }
+        },
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "name": "Discount Grpc",
+            "program": "/mnt/c/Users/knberg/aspnet_microservices_architecture/src/Services/Discount/Discount.Grpc/bin/Debug/net6.0/Discount.Grpc.dll",
+            "cwd": "/mnt/c/Users/knberg/aspnet_microservices_architecture/src/Services/Discount/Discount.Grpc/",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "name": "Basket API",
+            "program": "/mnt/c/Users/knberg/aspnet_microservices_architecture/src/Services/Basket/Basket.API/bin/Debug/net6.0/Basket.API.dll",
+            "cwd": "/mnt/c/Users/knberg/aspnet_microservices_architecture/Basket/src/Services/Basket.API",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server/Client",
+            "configurations": ["Discount Grpc", "Basket API"]
+        }
+    ]
+}
