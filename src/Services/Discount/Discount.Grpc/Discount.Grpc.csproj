@@ -23,4 +23,11 @@
     <Protobuf Include="Protos/discount.proto" GrpServices="Server" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../../Ordering/Ordering.Domain/Ordering.Domain.csproj" GrpServices="Server" />
+    <ProjectReference Include="../../Ordering/Ordering.Application/Ordering.Application.csproj" GrpServices="Server" />
+  </ItemGroup>
+
+
+
 </Project>
